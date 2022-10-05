@@ -1,8 +1,28 @@
 <template>
+<div>
+    <div class="position-absolute col-12 row d-flex align-items-center">
+        <div class="col-3">
+            <img class="col-3" alt="GosuLogo" src="../assets/logoBlue.png">
+        </div>
+        <div class="col"></div>
+        <div class="col-2 text-end d-flex align-items-center justify-content-evenly px-5">
+            <div class="d-inline-block" >
+                <h5>kaz</h5>
+            </div>
+            <div class="d-inline-block">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                </div>
+            </div>
+            <div class="d-inline-block">
+                <h5>ru</h5>
+            </div>
+        </div>
+    </div>
     <div class="height container-fluid d-flex flex-column align-items-center justify-content-center"> 
         <div class="col-11">  
             <div class="btn bg-primary bg-opacity-50 col-3 py-4 px-3">
-                <img class="col-4 mb-3" src="..\assets\image1.png" alt="">
+                <img class="col-3 mb-3" src="..\assets\image1.png" alt="">
                 <h4>Настройка оборудования</h4>
             </div>
         </div>    
@@ -25,13 +45,14 @@
                         <option value="3">До дэдлайна</option>
                     </select>
                 </div>
-                <div class="form-floating pt-4">
+                <div class="form-floating">
                     <a class="btn btn-primary col-12 text-uppercase fs-6 fw-bolder py-2" id="login" @click="f">СОЗДАТЬ ЗАЯВКУ</a>
                 </div>
             </form>
         </div>
     </div>
+</div>
 </template>
-<script scouped>
+<script scoped>
 
 </script>

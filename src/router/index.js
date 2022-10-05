@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '../views/LoginView.vue'
 import SettingPage from '../views/SettingPage.vue'
+import QuestionPage from '../views/QuestionPage.vue'
 
 const routes = [
   {
@@ -20,6 +21,11 @@ const routes = [
     path: '/setting',
     name: 'setting',
     component: SettingPage
+  },
+  {
+    path: '/question',
+    name: 'question',
+    component: QuestionPage
   },
 ]
 

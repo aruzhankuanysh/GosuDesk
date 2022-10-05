@@ -12,11 +12,11 @@
       <div><h4>Выберите интересующий вас раздел:</h4></div>
       <div class="col-11 d-flex justify-content-evenly my-5 pb-5">
         <div class="btn bg-primary bg-opacity-50 col-3 py-4 px-3" @click="setting">
-          <img class="col-4 mb-3" src="..\assets\image1.png" alt="">
+          <img class="col-3 mb-3" src="..\assets\image1.png" alt="">
           <h4>Настройка оборудования</h4>
         </div>
-        <div class="btn bg-primary bg-opacity-50 col-3 py-4 px-3">
-          <img class="col-4 mb-3" src="..\assets\image2.png" alt="">
+        <div class="btn bg-primary bg-opacity-50 col-3 py-4 px-3" @click="question">
+          <img class="col-3 mb-3" src="..\assets\image2.png" alt="">
           <h4>Вопрос по 1С</h4>
         </div>
       </div>
@@ -32,6 +32,9 @@
   methods:{
     async setting(){
       this.$router.push({name:'setting'});
+    },
+    async question(){
+      this.$router.push({name:'question'});
     }
   }
 }

@@ -21,7 +21,7 @@
     </div>
     <div class="height container-fluid d-flex flex-column align-items-center justify-content-center"> 
         <div class="col-11">  
-            <div class="btn bg-primary bg-opacity-50 col-3 py-4 px-3">
+            <div class="btn bg-primary bg-opacity-50 col-xl-3 col-5 py-4 px-3">
                 <img class="col-3 mb-3" src="..\assets\image1.png" alt="">
                 <h4>Настройка оборудования</h4>
             </div>
@@ -46,7 +46,7 @@
                     </select>
                 </div>
                 <div class="form-floating">
-                    <a class="btn btn-primary col-12 text-uppercase fs-6 fw-bolder py-2" id="login" @click="f">СОЗДАТЬ ЗАЯВКУ</a>
+                    <a class="btn btn-primary col-12 text-uppercase fs-6 fw-bolder py-2" id="login" @click="createtask">СОЗДАТЬ ЗАЯВКУ</a>
                 </div>
             </form>
         </div>
@@ -54,5 +54,16 @@
 </div>
 </template>
 <script scoped>
-
-</script>
+    // import HeaderOne from "@/components/HeaderOne.vue";
+    
+    export default{
+        components:{
+            // HeaderOne,
+        },
+        methods:{
+            async createtask(){
+                this.$router.push({name:'table'});
+            },
+        }
+    }
+    </script>

@@ -1,11 +1,13 @@
 <template>
 <div>
-    <div class="position-absolute col-12 row d-flex align-items-center">
-        <div class="col-3">
-            <img class="col-3" alt="GosuLogo" src="../assets/logoBlue.png">
+    <div class="position-absolute d-flex align-items-center my-2 col-12">
+        <div class="col-2">
+            <img class="col-5" alt="GosuLogo" src="../assets/logoBlue.png">
         </div>
-        <div class="col"></div>
-        <div class="col-2 text-end d-flex align-items-center justify-content-evenly px-5">
+        <div class="col my-2">
+
+        </div>
+        <div class="col-2 text-end d-flex align-items-center justify-content-evenly pe-5">
             <div class="d-inline-block" >
                 <h5>kaz</h5>
             </div>
@@ -14,7 +16,7 @@
                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
                 </div>
             </div>
-            <div class="d-inline-block">
+            <div class="d-inline-block me-2">
                 <h5>ru</h5>
             </div>
         </div>

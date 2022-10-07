@@ -3,6 +3,7 @@ import LoginView from '../views/LoginView.vue'
 import SettingPage from '../views/SettingPage.vue'
 import QuestionPage from '../views/QuestionPage.vue'
 import TableView from '../views/TableView.vue'
+import InfoTask from '../views/InfoTask.vue'
 
 const routes = [
   {
@@ -32,6 +33,11 @@ const routes = [
     path: '/table',
     name: 'table',
     component: TableView
+  },
+  {
+    path: '/info',
+    name: 'info',
+    component: InfoTask
   },
 ]
 

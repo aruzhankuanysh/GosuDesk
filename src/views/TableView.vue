@@ -4,6 +4,14 @@
 <div id="height"></div>
 <div class="height container-fluid d-flex flex-column align-items-center justify-content-center">
     <div class="col-11">
+        <div class="mb-3 d-flex">
+            <div class="col-4 bg-light rounded d-flex align-items-center px-2 py-2 me-5">
+                <h1 class="text-primary">125 &ensp;</h1><h3>закрытых заявок</h3>
+            </div>
+            <div class="col-4 bg-light rounded d-flex align-items-center px-2 py-2">
+                <h1 class="text-primary">84 &ensp;</h1><h3>заявок в работе</h3>
+            </div>
+        </div>
         <div class="card">
             <table class="table bg-light text-start">
                 <thead class="fw-bolder text-light">

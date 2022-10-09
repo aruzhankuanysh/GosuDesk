@@ -4,6 +4,7 @@ import SettingPage from '../views/SettingPage.vue'
 import QuestionPage from '../views/QuestionPage.vue'
 import TableView from '../views/TableView.vue'
 import InfoTask from '../views/InfoTask.vue'
+import OtherPage from '../views/OtherPage'
 
 const routes = [
   {
@@ -28,6 +29,11 @@ const routes = [
     path: '/question',
     name: 'question',
     component: QuestionPage
+  },
+  {
+    path: '/other',
+    name: 'other',
+    component: OtherPage
   },
   {
     path: '/table',

@@ -58,14 +58,14 @@
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
                 </div>
                 <div class="mb-3 position-relative d-flex">
-                    <input id="addfile" type="file" hidden="hidden">
+                    <input id="addfile" type="file" hidden="hidden" @click="addNewFile">
                     <label class="btn p-0 m-0" for="addfile" id="addfile-btn">
                         <i class="bi bi-paperclip h4 d-inline-block"></i>
                         <h5 class="m-0 text-secondary my-auto d-inline-block" id="addfile-text">Файл</h5> 
                     </label>
                 </div>
                 <div class="form-floating">
-                    <a class="btn btn-primary col-12 text-uppercase fs-6 fw-bolder py-2" id="login" @click="f">СОЗДАТЬ ЗАЯВКУ</a>
+                    <a class="btn btn-primary col-12 text-uppercase fs-6 fw-bolder py-2" id="login" @click="createQuestion">СОЗДАТЬ ЗАЯВКУ</a>
                 </div>
             </form>
         </div>
@@ -76,19 +76,26 @@
 <style scoped>
 </style>
 
-<script setup>
-window.onload = () => {
-    const addfile = document.getElementById("addfile");
-    // const btn = document.getElementById("addfile-btn");
-    const text = document.getElementById("addfile-text");
-
-    addfile.addEventListener("change", function(){
-        if(addfile.value){
-            text.innerText = addfile.value.split('\\').pop().split('/').pop();
+<script>
+export default{
+    methods:{
+        async addNewFile(){
+            const addfile = document.getElementById("addfile");
+            // const btn = document.getElementById("addfile-btn");
+            const text = document.getElementById("addfile-text");
+        
+            addfile.addEventListener("change", function(){
+                if(addfile.value){
+                    text.innerText = addfile.value.split('\\').pop().split('/').pop();
+                }
+                else{
+                    text.innerText = "Файл не выбран";
+                }
+            })
+        },
+        async createQuestion(){
+            this.$router.push({name: 'table'})
         }
-        else{
-            text.innerText = "Файл не выбран";
-        }
-    })
+    }
 }
 </script>

@@ -15,7 +15,7 @@
                             <h4 class="card-title border-bottom pb-2"> Задача №97455</h4>
                             <h5 class="card-text border-bottom py-4">Здесь будет какое-то описание про задачу. Здесь будет какое-то описание про задачу. Здесь будет какое-то описание про задачу. Здесь будет какое-то описание про задачу. Здесь будет какое-то описание про задачу. </h5>
                             <div class="card-subtitle position-relative d-flex py-2">
-                                <input id="addfile" type="file" hidden="hidden">
+                                <input id="addfile" type="file" hidden="hidden" @click="addNewFile">
                                 <label class="btn p-0 m-0" for="addfile" id="addfile-btn">
                                     <!-- <i class="bi bi-paperclip h4 d-inline-block"></i> -->
                                     <h5 class="m-0 text-secondary my-auto d-inline-block" id="addfile-text">+ прикрепить файл</h5> 
@@ -84,29 +84,30 @@
 
 <script>
 import HeaderOne from '@/components/HeaderOne.vue'
+
 export default{
     components:{
         HeaderOne
+    },
+    methods:{
+        async addNewFile(){
+            const addfile = document.getElementById("addfile");
+            // const btn = document.getElementById("addfile-btn");
+            const text = document.getElementById("addfile-text");
+        
+            addfile.addEventListener("change", function(){
+                if(addfile.value){
+                    text.innerText = addfile.value.split('\\').pop().split('/').pop();
+                }
+                else{
+                    text.innerText = "Файл не выбран";
+                }
+            })
+        }
     }
 }
 </script>
 
-<script setup>
-    window.onload = () => {
-        const addfile = document.getElementById("addfile");
-        // const btn = document.getElementById("addfile-btn");
-        const text = document.getElementById("addfile-text");
-    
-        addfile.addEventListener("change", function(){
-            if(addfile.value){
-                text.innerText = addfile.value.split('\\').pop().split('/').pop();
-            }
-            else{
-                text.innerText = "Файл не выбран";
-            }
-        })
-    }
-</script>
 
 <style scoped>
 .card-time .form-control{

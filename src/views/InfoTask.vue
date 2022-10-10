@@ -12,7 +12,7 @@
                 <div class="col-8">
                     <div class="card bg-light mb-5">
                         <div class="card-body pb-0">
-                            <h4 class="card-title border-bottom pb-2"> Задача №97455</h4>
+                            <h4 class="card-title border-bottom pb-2">Задача №97455</h4>
                             <h5 class="card-text border-bottom py-4">Здесь будет какое-то описание про задачу. Здесь будет какое-то описание про задачу. Здесь будет какое-то описание про задачу. Здесь будет какое-то описание про задачу. Здесь будет какое-то описание про задачу. </h5>
                             <div class="card-subtitle position-relative d-flex py-2">
                                 <input id="addfile" type="file" hidden="hidden" @click="addNewFile">

@@ -25,7 +25,7 @@
               <a class="btn btn-primary col-12 text-uppercase fs-6 fw-bolder py-2" id="login" @click="auter">ВОЙТИ</a>
           </div>
           <div class="form-floating text-center justify-content-between mt-4 mb-0">
-              <a href="password.html">Забыли пароль?</a>
+              <a href="#">Забыли пароль?</a>
           </div>
         </form>
       </div>

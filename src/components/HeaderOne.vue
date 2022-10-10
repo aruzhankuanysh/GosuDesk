@@ -17,7 +17,7 @@
                 <span class="input-group-text my-2 bg-transparent"><i class="bi bi-search text-primary"></i></span>
             </div>
         </div>
-        <div class="col-2 text-end d-flex align-items-center justify-content-evenly text-light pe-5">
+        <div class="col-2 text-end d-flex align-items-center justify-content-evenly text-light px-4">
             <div class="d-inline-block" >
                 <h5>kaz</h5>
             </div>
@@ -30,6 +30,7 @@
                 <h5>ru</h5>
             </div>
         </div>
+        <div class="col-1 text-start"><i class="bi bi-door-open-fill text-primary display-6"></i></div>
     </div>
 </div>
 </template>

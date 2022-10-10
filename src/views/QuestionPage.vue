@@ -18,6 +18,7 @@
                 <h5>ru</h5>
             </div>
         </div>
+        <div class="col-1 text-start"><i class="bi bi-door-open-fill text-primary display-6"></i></div>
     </div>
     <div class="height container-fluid d-flex flex-column align-items-center justify-content-center"> 
         <div class="col-11">  
@@ -48,7 +49,7 @@
                     <label for="exampleFormControlSelect" class="form-label">Укажите приоритет:</label>
                     <select class="form-select mb-3" id="exampleFormControlSelect" aria-label="Default select example">
                         <option selected disabled> </option>
-                        <option value="1">Обычная</option>
+                        <option value="1">Обычный</option>
                         <option value="2" class="bg-warning bg-opacity-50">Высокий</option>
                         <option value="3" class="bg-danger bg-opacity-50">Критический</option>
                     </select>
@@ -71,6 +72,7 @@
         </div>
     </div>
 </div>
+
 </template>
 
 <style scoped>

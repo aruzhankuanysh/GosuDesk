@@ -20,6 +20,7 @@
                 <h5>ru</h5>
             </div>
         </div>
+        <div class="col-1 text-start"><i class="bi bi-door-open-fill text-primary display-6"></i></div>
     </div>
     <div class="height container-fluid d-flex flex-column align-items-center justify-content-center"> 
         <div class="col-11">  

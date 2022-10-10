@@ -5,6 +5,8 @@ import QuestionPage from '../views/QuestionPage.vue'
 import TableView from '../views/TableView.vue'
 import InfoTask from '../views/InfoTask.vue'
 import OtherPage from '../views/OtherPage'
+import AddEmployee from '../views/AddEmployee'
+import AddClient from '../views/AddClient'
 
 const routes = [
   {
@@ -44,6 +46,16 @@ const routes = [
     path: '/info',
     name: 'info',
     component: InfoTask
+  },
+  {
+    path: '/addEmployee',
+    name: 'addEmployee',
+    component: AddEmployee
+  },
+  {
+    path: '/addClient',
+    name: 'addClient',
+    component: AddClient
   },
 ]
 

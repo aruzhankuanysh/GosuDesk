@@ -5,7 +5,7 @@
     <div class="py-5"></div>
     <div class="container-fluid d-flex flex-column align-items-center">
         <div class="col-11 text-start">
-            <div class="text-light mx-4 mb-5 mt-3">
+            <div class="text-light mx-4 mb-4 mt-4">
                 <div class=""><h2>Ошибки при работе с 1С</h2></div>
             </div>
             <div class="row m-0">

@@ -20,6 +20,7 @@
                 <h5>ru</h5>
             </div>
         </div>
+        <div class="col-1 text-start"><i class="bi bi-door-open-fill text-primary display-6"></i></div>
     </div>
     <div class="height container-fluid d-flex flex-column align-items-center justify-content-center"> 
         <div class="col-11">  
@@ -42,9 +43,9 @@
                     <label for="exampleFormControlSelect" class="form-label">Укажите приоритет:</label>
                     <select class="form-select mb-3" id="exampleFormControlInput1" aria-label="select">
                         <option selected disabled> </option>
-                        <option value="1">Срочно</option>
-                        <option value="2">Как можно скорее</option>
-                        <option value="3">До дэдлайна</option>
+                        <option value="1">Обычный</option>
+                        <option value="2">Высокий</option>
+                        <option value="3">Критический</option>
                     </select>
                 </div>
                 <div class="form-floating">

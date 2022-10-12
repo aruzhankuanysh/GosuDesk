@@ -30,7 +30,7 @@
             </div>
         </div>    
         <div class="card col-5 bg-primary bg-opacity-50 mt-5 px-5">
-            <form class="p-5 text-start">
+            <form class="d-none p-5 text-start">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Укажите название магазина или торговой точки:</label>
                     <input type="text" class="form-control" id="exampleFormControlInput1">
@@ -53,6 +53,36 @@
                 <div class="form-floating">
                     <a class="btn btn-primary col-12 text-uppercase fs-6 fw-bolder py-2" id="login" @click="createOther">СОЗДАТЬ ЗАЯВКУ</a>
                 </div>
+                <!-- <button class="btn" @click="getPosts">Show Posts</button>
+                <h2>{{ post.id }} - {{ post.title }}</h2>
+                <p>{{ post.body }}</p> -->
+            </form>
+            <form @submit.prevent="setPost" class="text-start">
+                <div>
+                    <label class="form-label my-3" for="userId">UserID:</label>
+                    <input class="form-control" type="text" id="userId" v-model="postData.userId">
+                </div>
+                <div>
+                    <label class="form-label my-3" for="title">Title: </label>
+                    <input class="form-control" type="text" id="title" v-model="postData.title">
+                </div>
+                <div>
+                    <label class="form-label my-3" for="body">Body: </label>
+                    <textarea class="form-control" id="body" rows="2" v-model="postData.body"></textarea>
+                </div>
+                <button class="btn btn-light my-4">Create Post</button>
+
+
+                <!-- <div class="mb-3 position-relative d-flex">
+                    <input v-on="addfile" id="addfile" type="file" hidden="hidden" @click="addNewFile">
+                    <label class="btn p-0 m-0" for="addfile" id="addfile-btn">
+                        <i class="bi bi-paperclip h4 d-inline-block"></i>
+                        <h5 class="m-0 text-secondary my-auto d-inline-block" id="addfile-text">Файл</h5> 
+                    </label>
+                </div>
+                <div class="form-floating">
+                    <a class="btn btn-primary col-12 text-uppercase fs-6 fw-bolder py-2" id="login" @click="createOther">СОЗДАТЬ ЗАЯВКУ</a>
+                </div> -->
             </form>
         </div>
     </div>
@@ -60,7 +90,21 @@
 </template>
 
 <script>
+
+// import {service} from '@services/index.js'
+
     export default{
+        data(){
+            return{
+                addfile: "",
+                post: {},
+                postData: {
+                    userId: '',
+                    title:  '',
+                    body:   ''
+                }
+            }
+        },
         methods:{
             async addNewFile(){
                 const addfile = document.getElementById("addfile");
@@ -76,8 +120,34 @@
                     }
                 })
             },
-            async createOther(){
-                this.$router.push({name: 'table'})
+            // async createOther() {
+            //     var responce = await fetch('192.168.31.180:4554/upload', {
+            //         method: 'POST',
+            //         headers: {
+            //             'Content-Type': 'multipart/form-data'
+            //         },
+            //         body: {
+            //             file: this.addfile
+            //         }
+            //     })
+            //     .then(response => response.data())
+            //     .then(data => console.log(data))
+            //     console.log(responce);
+            // },
+            async setPost() {
+                fetch('https://jsonplaceholder.typicode.com/posts/',{
+                    method:  'POST',
+                    headers: {
+                    'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        userId: this.userId,
+                        title:  this.title,
+                        body:   this.body
+                    })
+                })
+                .then(response => response.json())
+                .then(data => console.log(data))
             }
         }
     }

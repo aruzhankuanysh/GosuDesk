@@ -30,21 +30,21 @@
             </div>
         </div>    
         <div class="card col-5 bg-primary bg-opacity-50 mt-5 px-5">
-            <form class="d-none p-5 text-start">
+            <form class="p-5 text-start">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Укажите название магазина или торговой точки:</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1">
+                    <input type="text" class="form-control" id="exampleFormControlInput1" v-model="postOtherData.storeName">
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput2" class="form-label">Укажите контактный телефон:</label>
-                    <input type="number" class="form-control" id="exampleFormControlInput2" placeholder="8(777)777-77-77">
+                    <input type="number" class="form-control" id="exampleFormControlInput2" v-model="postOtherData.phone" placeholder="8(777)777-77-77">
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Опишите проблему:</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" v-model="postOtherData.description"></textarea>
                 </div>
                 <div class="mb-3 position-relative d-flex">
-                    <input id="addfile" type="file" hidden="hidden" @click="addNewFile">
+                    <input id="addfile" type="file" hidden="hidden" @click="addNewFile" v-on="postOtherData.addfile">
                     <label class="btn p-0 m-0" for="addfile" id="addfile-btn">
                         <i class="bi bi-paperclip h4 d-inline-block"></i>
                         <h5 class="m-0 text-secondary my-auto d-inline-block" id="addfile-text">Файл</h5> 
@@ -57,7 +57,7 @@
                 <h2>{{ post.id }} - {{ post.title }}</h2>
                 <p>{{ post.body }}</p> -->
             </form>
-            <form @submit.prevent="setPost" class="text-start">
+            <form @submit.prevent="setPost" class="text-start d-none">
                 <div>
                     <label class="form-label my-3" for="userId">UserID:</label>
                     <input class="form-control" type="text" id="userId" v-model="postData.userId">
@@ -96,8 +96,12 @@
     export default{
         data(){
             return{
-                addfile: "",
-                post: {},
+                postOtherData:{
+                    storeName: '',
+                    phone: '',
+                    description: '',
+                    addfile: FormData,
+                },
                 postData: {
                     userId: '',
                     title:  '',
@@ -120,22 +124,25 @@
                     }
                 })
             },
-            // async createOther() {
-            //     var responce = await fetch('192.168.31.180:4554/upload', {
-            //         method: 'POST',
-            //         headers: {
-            //             'Content-Type': 'multipart/form-data'
-            //         },
-            //         body: {
-            //             file: this.addfile
-            //         }
-            //     })
+            async createOther() {
+                fetch('192.168.31.180:4554/upload', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    },
+                    body: {
+                        storeName: this.storeName,
+                        phone: this.phone,
+                        description: this.description,
+                        file: this.addfile
+                    }
+                })
             //     .then(response => response.data())
             //     .then(data => console.log(data))
             //     console.log(responce);
-            // },
+            },
             async setPost() {
-                fetch('https://jsonplaceholder.typicode.com/posts/',{
+                fetch('192.168.31.180:4554/upload',{
                     method:  'POST',
                     headers: {
                     'Content-Type': 'application/json'

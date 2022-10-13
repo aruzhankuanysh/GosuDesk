@@ -71,6 +71,15 @@
   components: {
     // HelloWorld
   },
+  data() {
+    return {
+      token:""
+    }
+  },
+  mounted() {
+    this.token = localStorage.getItem('token')
+    console.log(this.token)
+  },
   methods:{
     async addEmployee(){
       this.$router.push({name:'addEmployee'});

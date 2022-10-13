@@ -42,9 +42,37 @@ export default {
   components: {
     // HelloWorld
   },
+  data() {
+    return {
+      email:"",
+      password:""
+    }
+  },
   methods:{
     async auter(){
-      this.$router.push({name:'home'});
+      let responce = await fetch('http://192.168.31.35:8000/Token',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        // 'Authorization': 'Bearer ' + this.access_token
+                    },
+                    body: "grant_type=&username=" + this.email  + "&password=" + this.password + "&scope=&client_id=&client_secret=" 
+                })
+                // .then(async function(res) { 
+                //     if(res.ok) {
+                //       let dataResp = await res.json()
+                //       localStorage.setItem('token', dataResp.access_token)
+
+                //       goHome()
+                //     }
+                // })
+      const responceData = await responce.json()
+
+      if(responce.ok){
+        localStorage.setItem('token', responceData.access_token)
+        this.$router.push({name:'home'});
+      }
     }
   }
   

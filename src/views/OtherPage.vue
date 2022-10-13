@@ -100,8 +100,8 @@
                     storeName: '',
                     phone: '',
                     description: '',
-                    addfile: FormData,
                 },
+                addfile: FormData,
                 postData: {
                     userId: '',
                     title:  '',
@@ -125,37 +125,33 @@
                 })
             },
             async createOther() {
-                fetch('192.168.31.180:4554/upload', {
+                let formData = new FormData();
+                fetch('http://192.168.31.180:4554', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'multipart/form-data'
-                    },
-                    body: {
-                        storeName: this.storeName,
-                        phone: this.phone,
-                        description: this.description,
-                        file: this.addfile
-                    }
+                    // headers: {
+                    //     'Content-Type': 'multipart/form-data'
+                    // },
+                    body: formData.append('file','addfile') 
                 })
-            //     .then(response => response.data())
-            //     .then(data => console.log(data))
-            //     console.log(responce);
+                .then(res => res.formData())
+                // .then(data => console.log(res.json()))
+                // console.log(responce);
             },
-            async setPost() {
-                fetch('192.168.31.180:4554/upload',{
-                    method:  'POST',
-                    headers: {
-                    'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        userId: this.userId,
-                        title:  this.title,
-                        body:   this.body
-                    })
-                })
-                .then(response => response.json())
-                .then(data => console.log(data))
-            }
+            // async setPost() {
+            //     fetch('192.168.31.180:4554/upload',{
+            //         method:  'POST',
+            //         headers: {
+            //         'Content-Type': 'application/json'
+            //         },
+            //         body: JSON.stringify({
+            //             userId: this.userId,
+            //             title:  this.title,
+            //             body:   this.body
+            //         })
+            //     })
+            //     .then(response => response.json())
+            //     .then(data => console.log(data))
+            // }
         }
     }
     </script>

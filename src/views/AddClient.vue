@@ -58,7 +58,19 @@
 </template>
 
 <script>
+import { service } from '@/services/index';
+
 export default{
+    data(){
+        return{
+            user:{
+                role:"client",
+                email: "",
+                password: "",
+                phone: ""
+            }
+        }
+    },
     methods:{
         async addNewFile(){
             const addfile = document.getElementById("addfile");
@@ -75,7 +87,9 @@ export default{
             })
         },
         async addClient(){
-            this.$router.push({name: 'home'})
+            let response = await service.addemployee(this.user);
+            if (response.ok)
+                this.$router.push({name: 'home'})
         }
     }
 }

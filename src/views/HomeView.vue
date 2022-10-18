@@ -44,7 +44,7 @@
           </div>
         </div>
       </div>
-      <div class="d-none">
+      <div class="">
         <div class="d-flex justify-content-evenly mt-5 pb-5">
           <div class="btn bg-primary bg-opacity-50 col-3 py-4 px-3" @click="addEmployee">
             <img class="col-3 mb-3" src="..\assets\image5.png" alt="">

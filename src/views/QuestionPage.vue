@@ -25,29 +25,30 @@
             <div class="btn bg-primary bg-opacity-50 col-3 pb-4 px-3">
                 <img class="col-4" src="..\assets\image2.png" alt="">
                 <h4>Вопрос по 1С</h4>
+                <input type="text" class="d-none" v-model="task.theme">
             </div>
         </div>    
         <div class="card col-5 bg-primary bg-opacity-50 mt-5 px-5">
             <form class="p-5 text-start">
                 <div class="mb-3">
                     <label for="exampleFormControlSelect1" class="form-label">Выберите из списка примерный вариант вопроса:</label>
-                    <select class="form-select mb-3" id="exampleFormControlSelect1" aria-label="Default select example">
+                    <select v-model="task.title" class="form-select mb-3" id="exampleFormControlSelect1" aria-label="Default select example">
                         <option selected disabled> </option>
-                        <option value="1">Создание пользователя</option>
-                        <option value="2">Настройка отчёта</option>
-                        <option value="3">Нет цен</option>
-                        <option value="1">Проблемы с себестоимостью</option>
-                        <option value="2">Вопрос по бухгалтерии</option>
-                        <option value="3">Вопрос по ЗУПу</option>
-                        <option value="1">Изменить неверный документ</option>
-                        <option value="2">Новое техническое задание</option>
-                        <option value="3">Не закрывается смена</option>
-                        <option value="3">Ничего не подходит</option>
+                        <option value="Создание пользователя">Создание пользователя</option>
+                        <option value="Настройка отчёта">Настройка отчёта</option>
+                        <option value="Нет цен">Нет цен</option>
+                        <option value="Проблемы с себестоимостью">Проблемы с себестоимостью</option>
+                        <option value="Вопрос по бухгалтерии">Вопрос по бухгалтерии</option>
+                        <option value="Вопрос по ЗУПу">Вопрос по ЗУПу</option>
+                        <option value="Изменить неверный документ">Изменить неверный документ</option>
+                        <option value="Новое техническое задание">Новое техническое задание</option>
+                        <option value="Не закрывается смена">Не закрывается смена</option>
+                        <option value="Ничего не подходит">Ничего не подходит</option>
                     </select>
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlSelect" class="form-label">Укажите приоритет:</label>
-                    <select class="form-select mb-3" id="exampleFormControlSelect" aria-label="Default select example">
+                    <select v-model="task.priority" class="form-select mb-3" id="exampleFormControlSelect" aria-label="Default select example">
                         <option selected disabled> </option>
                         <option value="1">Обычный</option>
                         <option value="2" class="bg-warning bg-opacity-50">Высокий</option>
@@ -56,7 +57,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Опишите проблему:</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                    <textarea v-model="task.text" class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
                 </div>
                 <div class="mb-3 position-relative d-flex">
                     <input id="addfile" type="file" hidden="hidden" @click="addNewFile">
@@ -79,7 +80,23 @@
 </style>
 
 <script>
+import {service} from '@/services/index'
+
 export default{
+    data(){
+        return{
+            task: {
+                theme: "Вопрос по 1С",
+                title: "",
+                priority: 0,
+                status:0,
+                text:"",
+                tags:["string"],
+                files:["string"]
+            },
+
+        }
+    },
     methods:{
         async addNewFile(){
             const addfile = document.getElementById("addfile");
@@ -96,6 +113,9 @@ export default{
             })
         },
         async createQuestion(){
+            this.task.priority = Number.parseInt(this.task.priority)
+            let response = await service.createquestion(this.task);
+            if (response.ok)
             this.$router.push({name: 'table'})
         }
     }

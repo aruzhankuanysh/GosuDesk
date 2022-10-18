@@ -34,14 +34,10 @@
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
+import {service} from '@/services/index'
 
 export default {
   name: 'LoginView',
-  components: {
-    // HelloWorld
-  },
   data() {
     return {
       email:"",
@@ -50,26 +46,11 @@ export default {
   },
   methods:{
     async auter(){
-      let responce = await fetch('http://192.168.31.35:8000/Token',
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                        // 'Authorization': 'Bearer ' + this.access_token
-                    },
-                    body: "grant_type=&username=" + this.email  + "&password=" + this.password + "&scope=&client_id=&client_secret=" 
-                })
-                // .then(async function(res) { 
-                //     if(res.ok) {
-                //       let dataResp = await res.json()
-                //       localStorage.setItem('token', dataResp.access_token)
-
-                //       goHome()
-                //     }
-                // })
-      const responceData = await responce.json()
+      var data = {email: this.email, password:this.password};
+      var responce = await service.authoriz(data);
 
       if(responce.ok){
+        const responceData = await responce.json()
         localStorage.setItem('token', responceData.access_token)
         this.$router.push({name:'home'});
       }

@@ -22,102 +22,22 @@
                     <th scope="col">Исполнитель</th>
                     <th scope="col">Дата подачи заявки</th>
                     <th scope="col">Приоритет</th>
-                    <th scope="col">Статус</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td class="btn" @click="task">Askona</td>
-                    <td>Вопрос по ЗУПу</td>
-                    <td>Не назначено</td>
-                    <td><input class="bg-transparent border-0" type="date" value="2022-07-22" min="2022-01-01" max="2032-12-31"></td>
-                    <td>Критический</td>
-                    <td>В работе</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Ошибки при работе с 1С</td>
-                    <td>Вопрос по ЗУПу</td>
-                    <td>Не назначено</td>
-                    <td><input class="bg-transparent border-0" type="date" value="2022-09-30" min="2022-01-01" max="2032-12-31"></td>
-                    <td>Критический</td>
-                    <td>В работе</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Damiana</td>
-                    <td>Вопрос по ЗУПу</td>
-                    <td>Не назначено</td>
-                    <td><input class="bg-transparent border-0" type="date" value="2022-10-02" min="2022-01-01" max="2032-12-31"></td>
-                    <td>Критический</td>
-                    <td>В работе</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Ошибки при работе с 1С</td>
-                    <td>Вопрос по ЗУПу</td>
-                    <td>Не назначено</td>
-                    <td><input class="bg-transparent border-0" type="date" value="2022-09-30" min="2022-01-01" max="2032-12-31"></td>
-                    <td>Критический</td>
-                    <td>В работе</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Ошибки при работе с 1С</td>
-                    <td>Вопрос по ЗУПу</td>
-                    <td>Не назначено</td>
-                    <td><input class="bg-transparent border-0" type="date" value="2022-09-30" min="2022-01-01" max="2032-12-31"></td>
-                    <td>Критический</td>
-                    <td>В работе</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Ошибки при работе с 1С</td>
-                    <td>Вопрос по ЗУПу</td>
-                    <td>Не назначено</td>
-                    <td><input class="bg-transparent border-0" type="date" value="2022-09-30" min="2022-01-01" max="2032-12-31"></td>
-                    <td>Критический</td>
-                    <td>В работе</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Ошибки при работе с 1С</td>
-                    <td>Вопрос по ЗУПу</td>
-                    <td>Не назначено</td>
-                    <td><input class="bg-transparent border-0" type="date" value="2022-09-30" min="2022-01-01" max="2032-12-31"></td>
-                    <td>Критический</td>
-                    <td>В работе</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Ошибки при работе с 1С</td>
-                    <td>Вопрос по ЗУПу</td>
-                    <td>Не назначено</td>
-                    <td><input class="bg-transparent border-0" type="date" value="2022-09-30" min="2022-01-01" max="2032-12-31"></td>
-                    <td>Критический</td>
-                    <td>В работе</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Ошибки при работе с 1С</td>
-                    <td>Вопрос по ЗУПу</td>
-                    <td>Не назначено</td>
-                    <td><input class="bg-transparent border-0" type="date" value="2022-09-30" min="2022-01-01" max="2032-12-31"></td>
-                    <td>Критический</td>
-                    <td>В работе</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Ошибки при работе с 1С</td>
-                    <td>Вопрос по ЗУПу</td>
-                    <td>Не назначено</td>
-                    <td><input class="bg-transparent border-0" type="date" value="2022-09-30" min="2022-01-01" max="2032-12-31"></td>
-                    <td>Критический</td>
-                    <td>В работе</td>
+                <tr v-for="task in tickets" :key = 'task'>
+                    <th scope="row">{{task.id}}</th>                    <!-- jd -->
+                    <td class="btn" @click="task">{{task.theme}}</td>   <!-- Тема -->
+                    <td>{{task.title}}</td>                             <!-- Наименование -->
+                    <td>{{task.contractor_id}}</td>                     <!-- Исполнитель -->
+                    <td>{{task.date_of_submission}}</td>                <!-- дата и время подачи  -->
+                    <td>{{task.priority}}</td>                          <!-- приоритет -->
+                    <td>{{task.status}}</td>                            <!-- статус -->
+                    <!-- <td>{{task.text}}</td> -->
                 </tr>
                 </tbody>
             </table>
+
         </div>
     </div>
 </div>
@@ -125,14 +45,36 @@
 </template>
 <script scoped>
 import HeaderOne from "@/components/HeaderOne.vue";
+import {service} from '@/services/index'
+import moment from 'moment'
 
 export default{
     components:{
         HeaderOne,
     },
+    data(){
+        return{
+            tickets: []
+        }
+    },
+    async mounted(){
+      var data = {access_token: localStorage.getItem('token')};
+      var responce = await service.gettickets(data);
+
+      if(responce.ok){
+        this.tickets = await responce.json()
+        for(var t in this.tickets){
+            this.tickets[t].date_of_submission = this.date(this.tickets[t].date_of_submission)
+            console.log(this.tickets[t])
+        }
+      }
+    },
     methods:{
         async task(){
             this.$router.push({name: 'info'});
+        },
+        date(olddate){
+            return moment(String(olddate)).format('DD.MM.YYYY hh:mm')
         }
     }
 }

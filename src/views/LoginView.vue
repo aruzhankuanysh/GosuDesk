@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import {service} from '@/services/index'
+// import {service} from '@/services/index'
 
 export default {
   name: 'LoginView',

@@ -44,16 +44,37 @@ a:-webkit-any-link {
     z-index: -2;
  }
  @media(max-width:600px) {
+  #height{
+    height: 130vh;
+  }
+  .text1{
+    font-size: 16px;
+  }
+  .text3{
+    font-size: 12px;
+  }
   .text4{
     font-size: 15px;
   }
  }
  @media(max-width:992px) and (min-width: 600px) {
+  .text1{
+    font-size: 24px;
+  }
+  .text3{
+    font-size: 18px;
+  }
   .text4{
     font-size: 15px;
   }
  }
  @media(max-width:1400px) and (min-width: 992px) {
+  .text1{
+    font-size: 26px;
+  }
+  .text3{
+    font-size: 20px;
+  }
   .text4{
     font-size: 20px;
   }

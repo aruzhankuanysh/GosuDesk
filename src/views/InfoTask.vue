@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div id="height"></div>
+    <div id="height" class="position-fixed"></div>
     <HeaderOne />
     <div class="py-5"></div>
     <div class="container-fluid d-flex flex-column align-items-center">
@@ -9,11 +9,11 @@
                 <div class=""><h2>Ошибки при работе с 1С</h2></div>
             </div>
             <div class="row m-0">
-                <div class="col-8">
+                <div class="col-md-8">
                     <div class="card bg-light mb-5">
                         <div class="card-body pb-0">
-                            <h4 class="card-title border-bottom pb-2">Задача №97455</h4>
-                            <h5 class="card-text border-bottom py-4">Здесь будет какое-то описание про задачу. Здесь будет какое-то описание про задачу. Здесь будет какое-то описание про задачу. Здесь будет какое-то описание про задачу. Здесь будет какое-то описание про задачу. </h5>
+                            <h4 class="card-title border-bottom pb-2 text4">Задача №97455</h4>
+                            <h5 class="card-text border-bottom py-md-4">Здесь будет какое-то описание про задачу. Здесь будет какое-то описание про задачу. Здесь будет какое-то описание про задачу. Здесь будет какое-то описание про задачу. Здесь будет какое-то описание про задачу. </h5>
                             <div class="card-subtitle position-relative d-flex py-2">
                                 <input id="addfile" type="file" hidden="hidden" @click="addNewFile">
                                 <label class="btn p-0 m-0" for="addfile" id="addfile-btn">
@@ -27,18 +27,18 @@
                             <button class="btn bg-primary bg-opacity-50 text-primary fw-bolder">Сохранить</button>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card mb-5 mb-md-0">
                         <div class="card-body">
                             <h4 class="card-title">Коментарии: 0</h4>
                             <input type="text" class="form-control">
                         </div>
                     </div>
-                    <div class="mt-5">
+                    <div class="mt-5 d-none d-md-block"><!-- x2  -->
                         <button class="btn bg-primary text-light">     <h5>Отменить заявку</h5> </button>
                         <button class="btn bg-light text-primary mx-3"><h5>Закрыть заявку</h5> </button>
                     </div>
                 </div>
-                <div class="col-4 bg-Success">
+                <div class="col-md-4 bg-Success">
                     <div class="card">
                         <div class="card-title bg-primary rounded-top py-4"> </div>
                         <div class="card-body rounded-bottom">
@@ -73,6 +73,10 @@
                             <div class="card-title">Время с момента принятия заявки:</div>
                             <h4><input class="form-control bg-transparent" type="time" value="15:12"></h4>
                         </div>
+                    </div>
+                    <div class="mt-4 d-md-none row mb-4"><!-- x2  -->
+                        <button class="btn bg-primary text-light col mx-1">     <h5 class="text4">Отменить заявку</h5> </button>
+                        <button class="btn bg-light text-primary col mx-1"><h5 class="text4">Закрыть заявку</h5> </button>
                     </div>
                 </div>
             </div>

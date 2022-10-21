@@ -7,11 +7,11 @@
         <div class="col">
 
         </div>
-        <div class="col-2 py-2 px-5">
+        <div class="col-md-4 col-lg-3 col-xl-2 py-2 px-5">
             <!--  bg-light bg-opacity-50 text-primary -->
             <button class="btn form-control text-light py-2" @click="newTask">Создать заявку</button>
         </div>
-        <div class="col-3 py-2 px-3">
+        <div class="col-md-3 col-lg-4 col-xl-3 py-2 px-3">
             <div class="input-group">
                 <input class="form-control py-2 my-2 bg-transparent text-light" type="text" placeholder="Поиск...">
                 <span class="input-group-text my-2 bg-transparent"><i class="bi bi-search text-primary"></i></span>

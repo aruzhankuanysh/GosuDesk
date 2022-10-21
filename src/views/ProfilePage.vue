@@ -18,20 +18,20 @@
                 <div class="card-body rounded-bottom px-md-5">
                     <form class="row d-flex justify-content-evenly mt-md-4 mt-xl-5">
                         <div class="pe-lg-5 col-md-6">
-                            <label class="form-label" for="Input1"><h4 class="text2">Имя</h4> </label>
+                            <label class="form-label" for="Input1"><h4 class="text2">ФИО:</h4> </label>
                             <input class="form-control mb-4 border-dark" v-model="fname" type="text" placeholder="" id="Input1" aria-label=".form-control-lg example">
                         </div>
                         <div class="ps-lg-5 col-md-6">
-                            <label class="form-label" for="Input2"><h4 class="text2">Фамилия:</h4> </label>
-                            <input class="form-control mb-4 border-dark" v-model="lname" type="text" placeholder="" id="Input2" aria-label=".form-control-lg example">
-                        </div>
-                        <div class="pe-lg-5 col-md-6">
                             <label class="form-label" for="Input3"><h4 class="text2">Название компании:</h4> </label>
                             <input class="form-control mb-4 border-dark" v-model="company_name" type="text" placeholder="" id="Input3" aria-label=".form-control-lg example">
                         </div>
-                        <div class="ps-lg-5 col-md-6">
+                        <div class="pe-lg-5 col-md-6">
                             <label class="form-label" for="Input1"><h4 class="text2">Телефон:</h4> </label>
                             <input class="form-control mb-4 border-dark" v-model="phone" type="phone" placeholder="" />
+                        </div>
+                        <div class="ps-lg-5 col-md-6">
+                            <label class="form-label" for="Input2"><h4 class="text2">Пароль:</h4> </label>
+                            <input class="form-control mb-4 border-dark" v-model="lname" type="text" placeholder="" id="Input2" aria-label=".form-control-lg example">
                         </div>
                         <div class="form-floating mb-3 mt-lg-4">
                             <a class="btn btn-primary col-12 text-uppercase fs-6 fw-bolder py-2" id="login" @click="update">СОХРАНИТЬ</a>

@@ -2,7 +2,7 @@
   <div class="about">
     <div class="position-absolute d-flex text-end col-12 pt-3">
       <div class="col"></div>
-      <div class="col-2 text-center"><i class="bi bi-door-open-fill text-primary display-6"></i></div>
+      <div class="col-2 text-center"><router-link to="/profile"><i class="bi bi-person-fill text-primary display-6"></i></router-link></div>
     </div>
     <div class="height container-fluid d-flex flex-column align-items-center justify-content-center">
       <div class="home align-items-center col-lg-8">
@@ -59,7 +59,7 @@
             <h4 class="text4">Все заявки</h4>
           </div>
         </div>
-        <div class="d-flex justify-content-evenly mt-5 pb-5 d-md-none">
+        <div class="d-flex d-md-none justify-content-evenly mt-5 pb-5">
           <div class="btn bg-primary bg-opacity-50 col-4 col-md-3 py-4 px-3" @click="allTask">
             <img class="col-3 mb-3" src="..\assets\image4.png" alt="">
             <h4 class="text4">Все заявки</h4>

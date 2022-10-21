@@ -1,7 +1,11 @@
 <template>
 <div>
     <div id="height" class="position-fixed"></div>
-    <HeaderOne />
+    <div class="position-absolute d-flex align-items-center my-2">
+        <HeaderOne />
+        <div class="col-1 text-start"><router-link to="/"><i class="bi bi-door-open-fill text-primary display-6"></i></router-link></div>
+    </div>
+    
     <div class="py-5"></div>
     <div class="container-fluid d-flex flex-column align-items-center justify-content-center pb-5">
         <div class="col-11">
@@ -16,7 +20,7 @@
             <div class="card text-start">
                 <div class="card-title bg-primary rounded-top px-3 py-2 py-md-4 px-md-5"><h2 class="text-light text2">9k2dil16@gmail.com</h2> </div>
                 <div class="card-body rounded-bottom px-md-5">
-                    <form class="row d-flex justify-content-evenly mt-md-4 mt-xl-5">
+                    <form class="row d-flex justify-content-evenly mt-md-4">
                         <div class="pe-lg-5 col-md-6">
                             <label class="form-label" for="Input1"><h4 class="text2">ФИО:</h4> </label>
                             <input class="form-control mb-4 border-dark" v-model="fname" type="text" placeholder="" id="Input1" aria-label=".form-control-lg example">

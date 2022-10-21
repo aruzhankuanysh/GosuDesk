@@ -1,7 +1,10 @@
 <template>
 <div>
-<HeaderOne />
 <div id="height"></div>
+<div class="position-absolute d-flex align-items-center my-2">
+    <HeaderOne />
+    <div class="col-1 text-start"><router-link to="/profile"><i class="bi bi-person-fill text-primary display-6"></i></router-link></div>
+</div>
 <div class="py-5"></div>
 <div class="height container-fluid d-flex flex-column align-items-center justify-content-center">
     <div class="col-11">

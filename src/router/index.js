@@ -7,6 +7,7 @@ import InfoTask from '../views/InfoTask.vue'
 import OtherPage from '../views/OtherPage'
 import AddEmployee from '../views/AddEmployee'
 import AddClient from '../views/AddClient'
+import ProfilePage from '../views/ProfilePage'
 
 const routes = [
   {
@@ -56,6 +57,11 @@ const routes = [
     path: '/addClient',
     name: 'addClient',
     component: AddClient
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: ProfilePage
   },
 ]
 

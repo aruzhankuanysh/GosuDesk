@@ -14,8 +14,8 @@
           <h2 class="text2">Вход в систему</h2>
         </div>
         <form class="mt-5">
-          <input class="form-control form-control mb-4" v-model="email" type="email" placeholder="Email..." aria-label=".form-control-lg example">
-          <input class="form-control form-control mb-4" v-model="password" type="password" placeholder="Пароль" />
+          <input class="form-control mb-4" v-model="email" type="email" placeholder="Email..." aria-label=".form-control-lg example">
+          <input class="form-control mb-4" v-model="password" type="password" placeholder="Пароль" />
      
           <div class="form-check mb-3 text-start">
               <input class="form-check-input" id="inputRememberPassword" type="checkbox" v-model="rememberMe" />

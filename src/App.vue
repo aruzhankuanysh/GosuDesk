@@ -50,6 +50,9 @@ a:-webkit-any-link {
   .text1{
     font-size: 16px;
   }
+  .text2{
+    font-size: 16px;
+  }
   .text3{
     font-size: 12px;
   }

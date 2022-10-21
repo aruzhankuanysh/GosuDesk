@@ -1,8 +1,8 @@
 <template>
 <div>
     <div class="position-absolute d-flex align-items-center my-2 col-12">
-        <div class="col-2">
-            <img class="col-5" alt="GosuLogo" src="../assets/logoBlue.png">
+        <div class="col-2 col-md-3 col-lg-2">
+            <img class="col-10 col-md-5" alt="GosuLogo" src="../assets/logoBlue.png">
         </div>
         <div class="col my-2">
 
@@ -22,15 +22,15 @@
         </div>
         <div class="col-1 text-start"><i class="bi bi-door-open-fill text-primary display-6"></i></div>
     </div>
-    <div class="height container-fluid d-flex flex-column align-items-center justify-content-center"> 
+    <div class="height container-fluid d-flex flex-column align-items-center justify-content-center mb-5 mb-md-0"> 
         <div class="col-11">  
-            <div class="btn bg-primary bg-opacity-50 col-xl-3 col-5 py-4 px-3">
-                <img class="col-3 mb-3" src="..\assets\image1.png" alt="">
-                <h4>Настройка оборудования</h4>
+            <div class="btn bg-primary bg-opacity-50 col-9 col-md-4 py-3 py-md-4 px-md-3 mt-md-0 mt-5">
+                <img class="col-2 col-md-3 mb-3" src="..\assets\image1.png" alt="">
+                <h4 class="text4">Настройка оборудования</h4>
                 <input type="text" class="d-none" v-model="task.theme">
             </div>
         </div>    
-        <div class="card col-5 bg-primary bg-opacity-50 mt-5 px-5">
+        <div class="card bg-primary bg-opacity-50 mt-2 mt-md-5 px-md-5">
             <form class="p-5 text-start">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Укажите название магазина или торговой точки:</label>

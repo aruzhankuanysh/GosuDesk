@@ -11,7 +11,7 @@
       </div>
       <div class="card-body px-4 mx-3">
         <div class="my-3">
-          <h2>Вход в систему</h2>
+          <h2 class="text2">Вход в систему</h2>
         </div>
         <form class="mt-5">
           <input class="form-control form-control mb-4" v-model="email" type="email" placeholder="Email..." aria-label=".form-control-lg example">

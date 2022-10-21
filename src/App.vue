@@ -43,4 +43,19 @@ a:-webkit-any-link {
     position: fixed;
     z-index: -2;
  }
+ @media(max-width:600px) {
+  .text4{
+    font-size: 15px;
+  }
+ }
+ @media(max-width:992px) and (min-width: 600px) {
+  .text4{
+    font-size: 15px;
+  }
+ }
+ @media(max-width:1400px) and (min-width: 992px) {
+  .text4{
+    font-size: 20px;
+  }
+ }
 </style>

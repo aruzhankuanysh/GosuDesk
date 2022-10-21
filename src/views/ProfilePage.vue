@@ -6,11 +6,11 @@
     <div class="container-fluid d-flex flex-column align-items-center justify-content-center pb-5">
         <div class="col-11">
             <div class="mb-3 d-flex">
-                <div class="col-6 col-md-4 bg-light rounded d-flex align-items-center px-2 py-2 me-md-5 me-2">
-                    <h1 class="text-primary text1">125 &ensp;</h1><h3 class="text3">закрытых заявок</h3>
+                <div class="col-6 col-md-4 bg-light rounded d-flex align-items-center px-md-2 py-2 me-md-5 me-2">
+                    <h1 class="text-primary text1 ms-1">125 &ensp;</h1><h3 class="text3">закрытых заявок</h3>
                 </div>
-                <div class="col-6 col-md-4 bg-light rounded d-flex align-items-center px-2 py-2">
-                    <h1 class="text-primary text1">84 &ensp;</h1><h3 class="text3">заявок в работе</h3>
+                <div class="col-5 col-md-4 bg-light rounded d-flex align-items-center px-md-2 py-2">
+                    <h1 class="text-primary text1 ms-1">84 &ensp;</h1><h3 class="text3">заявок в работе</h3>
                 </div>
             </div>
             <div class="card text-start">

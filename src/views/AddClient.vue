@@ -41,13 +41,13 @@
                     <label for="InputClientPass" class="form-label">Организация клиента:</label>
                     <input type="text" class="form-control" id="InputClientPass">
                 </div>
-                <!-- <div class="mb-3 position-relative d-flex">
+                <div class="mb-3 position-relative d-flex">
                     <input id="addfile" type="file" hidden="hidden" @click="addNewFile">
                     <label class="btn p-0 m-0" for="addfile" id="addfile-btn">
                         <i class="bi bi-paperclip h4 d-inline-block"></i>
                         <h5 class="m-0 text-secondary my-auto d-inline-block" id="addfile-text">Файл</h5> 
                     </label>
-                </div> -->
+                </div>
                 <div class="form-floating">
                     <a class="btn btn-primary col-12 text-uppercase fs-6 fw-bolder py-2" id="login" @click="addClient">ДОБАВИТЬ</a>
                 </div>

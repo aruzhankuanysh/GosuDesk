@@ -46,14 +46,14 @@ export default {
   },
   methods:{
     async auter(){
-      var data = {email: this.email, password:this.password};
-      var responce = await service.authoriz(data);
+      // var data = {email: this.email, password:this.password};
+      // var responce = await service.authoriz(data);
 
-      if(responce.ok){
-        const responceData = await responce.json()
-        localStorage.setItem('token', responceData.access_token)
+      // if(responce.ok){
+      //   const responceData = await responce.json()
+      //   localStorage.setItem('token', responceData.access_token)
         this.$router.push({name:'home'});
-      }
+      // }
     }
   }
   

@@ -44,7 +44,7 @@ const routes = [
     component: TableView
   },
   {
-    path: '/info',
+    path: '/info/:id',
     name: 'info',
     component: InfoTask
   },

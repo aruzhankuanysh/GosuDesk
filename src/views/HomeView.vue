@@ -13,8 +13,8 @@
         <router-link to="#"><h4 class="text4">Қаз</h4> </router-link>
         <router-link to="#"><h4 class="text4">Рус</h4> </router-link>
       </div>
-      <div><h4 class="text4">Выберите интересующий вас раздел:</h4></div>
-      <div >
+      <div><h4 class="text4">Выберите интересующий вас раздел: {{user.role}}</h4></div>
+      <div v-show="!user.role=='admin'">
         <div class="col-lg-11 d-flex justify-content-evenly mt-5 pb-5">
           <div class="btn bg-primary bg-opacity-50 col-5 col-md-4 col-lg-3 py-4 px-3">
             <router-link to="/setting">
@@ -44,7 +44,7 @@
           </div>
         </div>
       </div>
-      <div class="d-none">
+      <div v-show="user.role=='admin'">
         <div class="d-flex justify-content-evenly mt-5 pb-md-5">
           <div class="btn bg-primary bg-opacity-50 col-4 col-md-3 py-4 px-3" @click="addEmployee">
             <img class="col-3 mb-3" src="..\assets\image5.png" alt="">
@@ -77,12 +77,11 @@
   },
   data() {
     return {
-      token:""
+      user:{}
     }
   },
   mounted() {
-    this.token = localStorage.getItem('token')
-    console.log(this.token)
+    this.user = JSON.parse(localStorage.getItem('gosu_currrent_user'))
   },
   methods:{
     async addEmployee(){

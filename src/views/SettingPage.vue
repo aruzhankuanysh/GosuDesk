@@ -27,7 +27,7 @@
             <div class="btn bg-primary bg-opacity-50 col-9 col-md-3 py-3 py-md-4 px-md-3 mt-md-0 mt-5">
                 <img class="col-2 mb-3" src="..\assets\image1.png" alt="">
                 <h4 class="text4">Настройка оборудования</h4>
-                <input type="text" class="d-none" v-model="task.theme">
+                <input type="text" class="d-none" v-model="task.title">
             </div>
         </div>    
         <div class="card bg-primary bg-opacity-50 mt-2 mt-md-5 px-md-5">
@@ -44,14 +44,14 @@
                     <label for="exampleFormControlSelect" class="form-label">Укажите приоритет:</label>
                     <select v-model="task.priority" class="form-select mb-3" id="exampleFormControlInput1" aria-label="select">
                         <option selected disabled> </option>
-                        <option value="0">Обычный</option>
-                        <option value="1">Высокий</option>
-                        <option value="2">Критический</option>
+                        <option value="Обычный">Обычный</option>
+                        <option value="Высокий">Высокий</option>
+                        <option value="Критический">Критический</option>
                     </select>
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Опишите проблему:</label>
-                    <textarea v-model="task.text" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                    <textarea v-model="task.description" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
                 </div>
                 <div class="form-floating">
                     <a class="btn btn-primary col-12 text-uppercase fs-6 fw-bolder py-2" id="login" @click="createtask">СОЗДАТЬ ЗАЯВКУ</a>
@@ -64,29 +64,29 @@
 <script scoped>
 import {service} from '@/services/index'
     
-    export default{
-        data(){
-            return{
-                task:{
-                    theme: "Настройка оборудования",
-                    title: "string",
-                    store_name: "",
-                    phone_number: "",
-                    priority: 0,
-                    status: 0,
-                    text: "",
-                    tags: ["string"],
-                    files: ["string"],
-                }
+export default{
+    data(){
+        return{
+            task:{
+                title: "Настройка оборудования",
+                question:"Настройка оборудования",
+                implementer:"Не назначено",
+                creationDate:"",
+                priority: "",
+                status:"В ожидании",
+                description:"",
+                store_name:"",
+                phone_number: "",
+
             }
-        },
-        methods:{
-            async createtask(){
-                this.task.priority = Number.parseInt(this.task.priority)
-                let response = await service.createquestion(this.task);
-                if (response.ok)
-                    this.$router.push({name: 'table'})
-            },
         }
+    },
+    methods:{
+        async createtask(){
+            let response = await service.createtask(this.task);
+            if (response.ok)
+                this.$router.push({name: 'table'})
+        },
     }
-    </script>
+}
+</script>

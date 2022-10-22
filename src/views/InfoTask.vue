@@ -3,20 +3,21 @@
     <div id="height" class="position-fixed"></div>
     <div class="position-absolute d-flex align-items-center my-2">
         <HeaderOne />
-        <div class="col-1 text-start"><router-link to="/profile"><i class="bi bi-person-fill text-primary display-6"></i></router-link></div>
+        <!-- <div class="col-1 text-start"><router-link to="/profile"><i class="bi bi-person-fill text-primary display-6"></i></router-link></div> -->
     </div>
     <div class="py-5"></div>
     <div class="container-fluid d-flex flex-column align-items-center">
         <div class="col-11 text-start">
             <div class="text-light mx-4 mb-4 mt-4">
-                <div class=""><h2>Ошибки при работе с 1С</h2></div>
+                <div class=""><h2>{{task.title}}</h2></div>
             </div>
             <div class="row m-0">
                 <div class="col-md-8">
                     <div class="card bg-light mb-5">
                         <div class="card-body pb-0">
-                            <h4 class="card-title border-bottom pb-2 text4">Задача №97455</h4>
-                            <h5 class="card-text border-bottom py-md-4">Здесь будет какое-то описание про задачу. Здесь будет какое-то описание про задачу. Здесь будет какое-то описание про задачу. Здесь будет какое-то описание про задачу. Здесь будет какое-то описание про задачу. </h5>
+                            
+                            <h6 class="card-title border-bottom pb-2 text4"><h2>{{task.question}}</h2>Задача '{{task._id}}'</h6>
+                            <h5 class="card-text border-bottom py-md-4">{{task.description}}</h5>
                             <div class="card-subtitle position-relative d-flex py-2">
                                 <input id="addfile" type="file" hidden="hidden" @click="addNewFile">
                                 <label class="btn p-0 m-0" for="addfile" id="addfile-btn">
@@ -32,7 +33,7 @@
                     </div>
                     <div class="card mb-5 mb-md-0">
                         <div class="card-body">
-                            <h4 class="card-title">Коментарии: 0</h4>
+                            <h4 class="card-title">{{task.comment}}</h4>
                             <input type="text" class="form-control">
                         </div>
                     </div>
@@ -47,19 +48,19 @@
                         <div class="card-body rounded-bottom">
                             <div class="row border-bottom py-2">
                                 <div class="col text-secondary">Поставлена:</div>
-                                <div class="col"><input type="date"></div>
+                                <div class="col">{{task.creationDate}}</div>
                             </div>
                             <div class="row border-bottom py-2">
                                 <div class="col text-secondary">Исполнитель:</div>
-                                <div class="col">Калиева Дильназ</div>
+                                <div class="col">{{task.implementer}}</div>
                             </div>
                             <div class="row border-bottom py-2">
                                 <div class="col text-secondary">Приоритет:</div>
-                                <div class="col">Критический</div>
+                                <div class="col">{{task.priority}}</div>
                             </div>
                             <div class="row py-2">
                                 <div class="col text-secondary">Статус:</div>
-                                <div class="col">В работе</div>
+                                <div class="col">{{task.status}}</div>
                             </div>
                             <div class="row border-top py-2 pt-4 d-flex justify-content-around">
                                 <button class="btn col-5 bg-primary text-light">Взять в работу</button>
@@ -91,8 +92,15 @@
 
 <script>
 import HeaderOne from '@/components/HeaderOne.vue'
+import {service} from '@/services/index'
 
 export default{
+    data(){
+        return{
+            id:this.$route.params.id, 
+            task:{}
+        }
+    },
     components:{
         HeaderOne
     },
@@ -110,6 +118,14 @@ export default{
                     text.innerText = "Файл не выбран";
                 }
             })
+        }
+    },
+    async mounted(){
+        var responce = await service.getInfoTask({_id: this.id});
+        console.log(responce)
+        if(responce.ok){
+            this.task = await responce.json()
+            console.log(this.task)
         }
     }
 }

@@ -25,14 +25,14 @@
             <div class="btn bg-primary bg-opacity-50 col-9 col-md-3 py-3 py-md-4 px-md-3 mt-md-0 mt-5">
                 <img class="col-2 mb-3" src="..\assets\image2.png" alt="">
                 <h4 class="text4">Вопрос по 1С</h4>
-                <input type="text" class="d-none" v-model="task.theme">
+                <input type="text" class="d-none" v-model="task.title">
             </div>
         </div>    
         <div class="card bg-primary bg-opacity-50 mt-2 mt-md-5 px-md-5">
             <form class="p-5 text-start">
                 <div class="mb-3">
                     <label for="exampleFormControlSelect1" class="form-label">Выберите из списка примерный вариант вопроса:</label>
-                    <select v-model="task.title" class="form-select mb-3" id="exampleFormControlSelect1" aria-label="Default select example">
+                    <select v-model="task.question" class="form-select mb-3" id="exampleFormControlSelect1" aria-label="Default select example">
                         <option selected disabled> </option>
                         <option value="Создание пользователя">Создание пользователя</option>
                         <option value="Настройка отчёта">Настройка отчёта</option>
@@ -48,16 +48,16 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlSelect" class="form-label">Укажите приоритет:</label>
-                    <select v-model="task.priority" class="form-select mb-3" id="exampleFormControlSelect" aria-label="Default select example">
+                    <select v-model="task.priority" class="form-select mb-3" id="exampleFormControlSelect">
                         <option selected disabled> </option>
-                        <option value="1">Обычный</option>
-                        <option value="2" class="bg-warning bg-opacity-50">Высокий</option>
-                        <option value="3" class="bg-danger bg-opacity-50">Критический</option>
+                        <option value="Обычный">Обычный</option>
+                        <option value="Высокий" class="bg-warning bg-opacity-50">Высокий</option>
+                        <option value="Критический" class="bg-danger bg-opacity-50">Критический</option>
                     </select>
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Опишите проблему:</label>
-                    <textarea v-model="task.text" class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                    <textarea v-model="task.description" class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
                 </div>
                 <div class="mb-3 position-relative">
                     <input id="addfile" type="file" hidden="hidden" @click="addNewFile">
@@ -86,13 +86,13 @@ export default{
     data(){
         return{
             task: {
-                theme: "Вопрос по 1С",
-                title: "",
-                priority: 0,
-                status:0,
-                text:"",
-                tags:["string"],
-                files:["string"]
+                title: "Вопрос по 1С",
+                question:"",
+                implementer:"Не назначено",
+                creationDate:"",
+                priority: "",
+                status:"В ожидании",
+                description:"",
             },
 
         }
@@ -113,10 +113,9 @@ export default{
             })
         },
         async createQuestion(){
-            this.task.priority = Number.parseInt(this.task.priority)
-            let response = await service.createquestion(this.task);
+            let response = await service.createtask(this.task);
             if (response.ok)
-            this.$router.push({name: 'table'})
+                this.$router.push({name: 'table'})
         }
     }
 }

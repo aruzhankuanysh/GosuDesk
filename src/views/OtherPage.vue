@@ -90,68 +90,44 @@
 </template>
 
 <script>
+import {service} from '@/services/index'
 
-// import {service} from '@services/index.js'
-
-    export default{
-        data(){
-            return{
-                postOtherData:{
-                    storeName: '',
-                    phone: '',
-                    description: '',
-                },
-                addfile: FormData,
-                postData: {
-                    userId: '',
-                    title:  '',
-                    body:   ''
-                }
+export default{
+    data(){
+        return{
+            task:{
+                title: "Настройка оборудования",
+                question:"Настройка оборудования",
+                implementer:"Не назначено",
+                creationDate:"",
+                priority: "",
+                status:"В ожидании",
+                description:"",
+                store_name:"",
+                phone_number: "",
             }
-        },
-        methods:{
-            async addNewFile(){
-                const addfile = document.getElementById("addfile");
-                // const btn = document.getElementById("addfile-btn");
-                const text = document.getElementById("addfile-text");
-            
-                addfile.addEventListener("change", function(){
-                    if(addfile.value){
-                        text.innerText = addfile.value.split('\\').pop().split('/').pop();
-                    }
-                    else{
-                        text.innerText = "Файл не выбран";
-                    }
-                })
-            },
-            async createOther() {
-                let formData = new FormData();
-                fetch('http://192.168.31.180:4554', {
-                    method: 'POST',
-                    // headers: {
-                    //     'Content-Type': 'multipart/form-data'
-                    // },
-                    body: formData.append('file','addfile') 
-                })
-                .then(res => res.formData())
-                // .then(data => console.log(res.json()))
-                // console.log(responce);
-            },
-            // async setPost() {
-            //     fetch('192.168.31.180:4554/upload',{
-            //         method:  'POST',
-            //         headers: {
-            //         'Content-Type': 'application/json'
-            //         },
-            //         body: JSON.stringify({
-            //             userId: this.userId,
-            //             title:  this.title,
-            //             body:   this.body
-            //         })
-            //     })
-            //     .then(response => response.json())
-            //     .then(data => console.log(data))
-            // }
         }
+    },
+    methods:{
+        async addNewFile(){
+            const addfile = document.getElementById("addfile");
+            // const btn = document.getElementById("addfile-btn");
+            const text = document.getElementById("addfile-text");
+        
+            addfile.addEventListener("change", function(){
+                if(addfile.value){
+                    text.innerText = addfile.value.split('\\').pop().split('/').pop();
+                }
+                else{
+                    text.innerText = "Файл не выбран";
+                }
+            })
+        },
+        async createOther() {
+            let response = await service.createtask(this.task);
+            if (response.ok)
+                this.$router.push({name: 'table'})
+        },
     }
-    </script>
+}
+</script>

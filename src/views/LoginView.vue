@@ -14,7 +14,7 @@
           <h2 class="text2">Вход в систему</h2>
         </div>
         <form class="mt-5">
-          <input class="form-control mb-4" v-model="email" type="email" placeholder="Email..." aria-label=".form-control-lg example">
+          <input class="form-control mb-4" v-model="email" type="email" placeholder="test@gosu.kz">
           <input class="form-control mb-4" v-model="password" type="password" placeholder="Пароль" />
      
           <div class="form-check mb-3 text-start">
@@ -34,26 +34,29 @@
 </template>
 
 <script>
-// import {service} from '@/services/index'
+import {service} from '@/services/index'
+import jwt_decode from "jwt-decode";
 
 export default {
   name: 'LoginView',
   data() {
     return {
-      email:"",
-      password:""
+      email:"kv@gosu.kz",
+      password:"123"
     }
   },
   methods:{
     async auter(){
-      // var data = {email: this.email, password:this.password};
-      // var responce = await service.authoriz(data);
+      var data = {email: this.email, password:this.password};
+      var responce = await service.auth(data);
 
-      // if(responce.ok){
-      //   const responceData = await responce.json()
-      //   localStorage.setItem('token', responceData.access_token)
+      if(responce.ok){
+        const responceData = await responce.json()
+        localStorage.setItem('gosu_access_token',responceData.access_token)
+        localStorage.setItem('gosu_refresh_token',responceData.refresh_token)
+        localStorage.setItem('gosu_currrent_user', JSON.stringify(jwt_decode(responceData.access_token).user))
         this.$router.push({name:'home'});
-      // }
+      }
     }
   }
   
